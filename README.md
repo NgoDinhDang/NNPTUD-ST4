@@ -1,79 +1,33 @@
-# Inventory Service
-
-API quản lý tồn kho với Express và Mongoose.
+# Inventory API - NNPTUD ST4
 
 ## Cài đặt
-
-```bash
 npm install
-copy .env.example .env
-npm run dev
-```
 
-## API
+## Chạy chương trình
+npm start
 
-### Tạo product
+Server chạy tại:
+http://localhost:3000
 
-`POST /api/products`
+## API test bằng Postman
 
-```json
-{
-  "name": "IPhone 16",
-  "price": 25000,
-  "description": "Phone"
-}
-```
+1. Tạo product
+POST /api/products
 
-Khi tạo product thành công, hệ thống tự tạo 1 inventory tương ứng.
+2. Lấy danh sách inventory
+GET /api/inventories
 
-### Get all inventories
+3. Lấy inventory theo ID
+GET /api/inventories/:id
 
-`GET /api/inventories`
+4. Thêm stock
+POST /api/inventories/add-stock
 
-### Get inventory by ID
+5. Giảm stock
+POST /api/inventories/remove-stock
 
-`GET /api/inventories/:id`
+6. Reservation (giữ hàng)
+POST /api/inventories/reservation
 
-### Add stock
-
-`POST /api/inventories/add-stock`
-
-```json
-{
-  "product": "PRODUCT_ID",
-  "quantity": 10
-}
-```
-
-### Remove stock
-
-`POST /api/inventories/remove-stock`
-
-```json
-{
-  "product": "PRODUCT_ID",
-  "quantity": 2
-}
-```
-
-### Reservation
-
-`POST /api/inventories/reservation`
-
-```json
-{
-  "product": "PRODUCT_ID",
-  "quantity": 3
-}
-```
-
-### Sold
-
-`POST /api/inventories/sold`
-
-```json
-{
-  "product": "PRODUCT_ID",
-  "quantity": 1
-}
-```
+7. Sold (bán hàng)
+POST /api/inventories/sold
